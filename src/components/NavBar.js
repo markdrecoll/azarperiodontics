@@ -1,3 +1,5 @@
+// transparent navbar <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}}>
+
 import React from "react";
 import {
   AppBar,
@@ -5,15 +7,18 @@ import {
   CssBaseline,
   Typography,
   makeStyles,
+  useTheme,
+  useMediaQuery,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import DrawerComponent from "./Drawer";
 
 const useStyles = makeStyles((theme) => ({
   navlinks: {
-    marginLeft: theme.spacing(10),
+    marginLeft: theme.spacing(5),
     display: "flex",
   },
- logo: {
+  logo: {
     flexGrow: "1",
     cursor: "pointer",
   },
@@ -31,14 +36,21 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar() {
   const classes = useStyles();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <AppBar position="static">
+    // <AppBar position="static">
+    <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}}>
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
           Navbar
+          
         </Typography>
+        {isMobile ? (
+          <DrawerComponent />
+        ) : (
           <div className={classes.navlinks}>
             <Link to="/" className={classes.link}>
               Home
@@ -53,6 +65,7 @@ function Navbar() {
               FAQ
             </Link>
           </div>
+        )}
       </Toolbar>
     </AppBar>
   );
