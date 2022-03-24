@@ -1,4 +1,5 @@
-// transparent navbar <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}}>
+// Adapted From
+// https://javascript.works-hub.com/learn/how-to-create-a-responsive-navbar-using-material-ui-and-react-router-f9a01
 
 import React from "react";
 import {
@@ -15,7 +16,7 @@ import DrawerComponent from "./Drawer";
 
 const useStyles = makeStyles((theme) => ({
   navlinks: {
-    marginLeft: theme.spacing(5),
+    marginRight: theme.spacing(5),
     display: "flex",
   },
   logo: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     color: "white",
     fontSize: "20px",
-    marginLeft: theme.spacing(20),
+    marginRight: theme.spacing(15),
     "&:hover": {
       color: "yellow",
       borderBottom: "1px solid white",
@@ -40,14 +41,13 @@ function Navbar() {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    // <AppBar position="static">
     <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}}>
       <CssBaseline />
       <Toolbar>
-        <Typography variant="h4" className={classes.logo}>
+        {/* <Typography variant="h4" className={classes.logo}>
           Navbar
           
-        </Typography>
+        </Typography> */}
         {isMobile ? (
           <DrawerComponent />
         ) : (

@@ -33,7 +33,7 @@ function App() {
   const azarPeriodonticsBackgroundStyle={
     backgroundImage: "url('images/dental_tool_background.png')",
     height:'100vh',
-    width: '100vw',
+    width: '100%',
     // marginTop:'-70px',
     fontSize:'50px',
     backgroundSize: 'cover',
